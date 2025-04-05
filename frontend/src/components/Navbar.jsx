@@ -85,7 +85,7 @@ import { assets } from "../assets/assets";
              {/* Admin Login Button */}
              {!token && (
                <button 
-                 onClick={() => window.open("https://forever-admin-lake.vercel.app")}
+                 onClick={() => window.open("https://forever-admin-lake.vercel.app", "_blank")}
                  className="hidden sm:flex items-center gap-1 bg-black text-white px-3 py-1.5 text-sm rounded hover:bg-gray-800 transition"
                >
                  Admin <FaExternalLinkAlt className="text-xs" />
@@ -198,7 +198,7 @@ import { assets } from "../assets/assets";
                    { path: "/collection", name: "COLLECTION" },
                    { path: "/about", name: "ABOUT" },
                    { path: "/contact", name: "CONTACT" },
-                   ...(!token ? [{ path: "https://prescripto-admin-topaz.vercel.app", name: "ADMIN LOGIN", external: true }] : [])
+                   ...(!token ? [{ path: "https://forever-admin-lake.vercel.app", name: "ADMIN LOGIN", external: true }] : [])
                  ].map((link) => (
                    <NavLink
                      key={link.path}
