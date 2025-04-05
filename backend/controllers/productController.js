@@ -1,4 +1,4 @@
-import Product from "../models/ProductModel.js";
+import Product from "../models/productModel.js";
 import { v2 as cloudinary } from 'cloudinary';
 
 // Function to add a new product
