@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { backendUrl } from "../App";
 import { toast } from "react-toastify";
 
 const AdminLogin = ({ setToken }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("admin@forever.com");
+  const [password, setPassword] = useState("adminpassword");
   const [isLoading, setIsLoading] = useState(false);
 
+  // Optional: Auto-submit when component mounts (remove if not needed)
+  useEffect(() => {
+    // onSubmitHandler(); // Uncomment this line if you want auto-submit
+  }, []);
+
   const onSubmitHandler = async (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     setIsLoading(true);
     
     try {
