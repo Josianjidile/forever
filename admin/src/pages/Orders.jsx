@@ -3,6 +3,7 @@ import axios from 'axios';
 import { backendUrl, currency } from '../App';
 import { toast } from 'react-toastify';
 import { assets } from '../assets/assets';
+import { FiChevronDown } from 'react-icons/fi';
 
 const Orders = ({ token }) => {
   const [orders, setOrders] = useState([]);
@@ -186,7 +187,7 @@ const Orders = ({ token }) => {
                 <div className="relative">
                   <select 
                     onChange={(event) => updateStatusHandler(event, order._id)}
-                    className="px-3 py-2 border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 pr-8 appearance-none"
+                    className="px-3 py-2 border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 pr-8 appearance-none bg-white"
                     defaultValue={order.status}
                     disabled={updatingStatus === order._id}
                   >
@@ -197,6 +198,9 @@ const Orders = ({ token }) => {
                     <option value="Out of Delivery">Out of Delivery</option>
                     <option value="Delivered">Delivered</option>
                   </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <FiChevronDown className="h-4 w-4" />
+                  </div>
                   {updatingStatus === order._id && (
                     <div className="absolute inset-y-0 right-0 flex items-center pr-2">
                       <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-blue-500"></div>

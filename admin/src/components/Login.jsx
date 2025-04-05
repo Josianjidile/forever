@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { backendUrl } from "../App";
 import { toast } from "react-toastify";
+import { useNavigate } from 'react-router-dom';
 
 const AdminLogin = ({ setToken }) => {
-  const [email, setEmail] = useState("admin@forever.com");
-  const [password, setPassword] = useState("adminpassword");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
-  // Optional: Auto-submit when component mounts (remove if not needed)
-  useEffect(() => {
-    // onSubmitHandler(); // Uncomment this line if you want auto-submit
-  }, []);
+  const navigate = useNavigate();
 
   const onSubmitHandler = async (e) => {
-    if (e) e.preventDefault();
+    e.preventDefault();
     setIsLoading(true);
     
     try {
@@ -23,6 +20,7 @@ const AdminLogin = ({ setToken }) => {
       if (response.data.success) {
         setToken(response.data.token);
         toast.success("Login successful!");
+        navigate("/list");
       } else {
         toast.error(response.data.message || "Invalid credentials");
       }
