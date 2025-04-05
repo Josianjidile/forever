@@ -85,7 +85,7 @@ import { assets } from "../assets/assets";
              {/* Admin Login Button */}
              {!token && (
                <button 
-                 onClick={() => window.open("https://forever-admin-lake.vercel.app", "_blank")}
+                 onClick={() => window.open("https://forever-admin-lake.vercel.app")}
                  className="hidden sm:flex items-center gap-1 bg-black text-white px-3 py-1.5 text-sm rounded hover:bg-gray-800 transition"
                >
                  Admin <FaExternalLinkAlt className="text-xs" />
